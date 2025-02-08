@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from 'next/link';
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { MobileHeader } from "./MobileHeader";
+import { DesktopHeader } from "./DesktopHeader";
 
 const BOX_STYLE = "border-[1px] border-black rounded-[3px] bg-white";
 
@@ -49,107 +51,15 @@ export default function WorldContent({ initialMoments }: WorldContentProps) {
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      <header className={cn("w-full sticky top-0 z-50 bg-black")}>
-        <div className={cn("flex flex-col sm:flex-row w-full border-black border-[1px]")}>
-          {/* Logo and branding section */}
-          <div className={cn("flex-1 flex flex-col", BOX_STYLE)}>
-            <div className={cn(
-              "flex-1 p-2 sm:p-4 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-4",
-              "bg-white"
-            )}>
-              <div className="flex flex-row items-center gap-2 sm:gap-4">
-                <Image 
-                  src="/humans-only.png" 
-                  alt="Humans Only" 
-                  width={36}
-                  height={36}
-                  className="rounded-full w-9 h-9 sm:w-16 sm:h-16"
-                />
-                <div className="flex flex-col items-start gap-0.5 sm:gap-2">
-                  <Link href="https://itm.studio" target="_blank" rel="noopener noreferrer">
-                    <Image 
-                      src="/powered-by.svg" 
-                      alt="Powered by ITM" 
-                      width={100} 
-                      height={100}
-                      className="sm:w-[160px] sm:h-[160px]" 
-                    />
-                  </Link>
-                  <Typography 
-                    variant="body08" 
-                    className="hidden sm:block text-center sm:text-left italic text-xs sm:text-base"
-                  >
-                    Exclusive drops from humans, by humans
-                  </Typography>
-                </div>
-              </div>
-
-              {/* Move filters inline on mobile */}
-              <div className="flex sm:hidden flex-row gap-2">
-                <Select 
-                  defaultValue="all-status" 
-                  onValueChange={setStatusFilter}
-                >
-                  <SelectTrigger className="h-8 min-w-24 border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
-                    <SelectValue placeholder="Status" />
-                  </SelectTrigger>
-                  <SelectContent className="border-black">
-                    <SelectItem value="all-status">Everything</SelectItem>
-                    <SelectItem value="live">Live Now</SelectItem>
-                    <SelectItem value="upcoming">Upcoming</SelectItem>
-                    <SelectItem value="ended">Ended</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Select 
-                  defaultValue="all-type"
-                  onValueChange={setTypeFilter}
-                >
-                  <SelectTrigger className="h-8 min-w-24 border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
-                    <SelectValue placeholder="Type" />
-                  </SelectTrigger>
-                  <SelectContent className="border-black">
-                    <SelectItem value="all-type">All Drops</SelectItem>
-                    <SelectItem value="digital">Products</SelectItem>
-                    <SelectItem value="irl">Events</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-
-          {/* Filters section - desktop only */}
-          <div className={cn("hidden sm:flex flex-col sm:flex-row", BOX_STYLE)}>
-            <div className={cn("p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2")}>
-              <Select 
-                defaultValue="all-status" 
-                onValueChange={setStatusFilter}
-              >
-                <SelectTrigger className="h-10 w-[140px] border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
-                  <SelectValue placeholder="Filter by status" />
-                </SelectTrigger>
-                <SelectContent className="border-black">
-                  <SelectItem value="all-status">Everything</SelectItem>
-                  <SelectItem value="live">Live Now</SelectItem>
-                  <SelectItem value="upcoming">Upcoming</SelectItem>
-                  <SelectItem value="ended">Ended</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select 
-                defaultValue="all-type"
-                onValueChange={setTypeFilter}
-              >
-                <SelectTrigger className="h-10 w-[140px] border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
-                  <SelectValue placeholder="Filter by type" />
-                </SelectTrigger>
-                <SelectContent className="border-black">
-                  <SelectItem value="all-type">All Drops</SelectItem>
-                  <SelectItem value="digital">Products</SelectItem>
-                  <SelectItem value="irl">Events</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
+      <header className="w-full sticky top-0 z-50 bg-black">
+        <MobileHeader 
+          onStatusChange={setStatusFilter}
+          onTypeChange={setTypeFilter}
+        />
+        <DesktopHeader 
+          onStatusChange={setStatusFilter}
+          onTypeChange={setTypeFilter}
+        />
       </header>
 
       <div className="w-full px-2 sm:px-4">
