@@ -40,7 +40,7 @@ export function MobileHeader({ onStatusChange, onTypeChange }: MobileHeaderProps
             variant="body08" 
             className="text-center italic text-xs"
           >
-            Exclusive drops from humans, by humans
+            Exclusive drops for humans, by humans
           </Typography>
         </div>
       </div>

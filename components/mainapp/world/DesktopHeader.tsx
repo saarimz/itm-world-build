@@ -39,7 +39,7 @@ export function DesktopHeader({ onStatusChange, onTypeChange }: DesktopHeaderPro
               variant="body08" 
               className="text-left italic text-base"
             >
-              Exclusive drops from humans, by humans
+              Exclusive drops for humans, by humans
             </Typography>
           </div>
         </div>
