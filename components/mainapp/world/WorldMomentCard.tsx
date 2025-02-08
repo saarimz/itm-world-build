@@ -68,7 +68,7 @@ export default function WorldMomentCard({ moment }: WorldMomentCardProps) {
     </div>
   ];
 
-  const host = process.env.NODE_ENV === 'production' ? 'itm.studio' : 'itm-staging.studio';
+  const host = process.env.NEXT_PUBLIC_APP_ENV === 'production' ? 'itm.studio' : 'itm-staging.studio';
 
   const url = `https://${moment.brand.slug}.${host}/m/${moment.slug}`;
 
