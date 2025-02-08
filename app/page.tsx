@@ -4,6 +4,8 @@ import { GetWorldMomentsResponse } from "@/types/graphql";
 
 const GRAPHQL_ENDPOINT = "https://itm-backend-staging.up.railway.app/graphql";
 
+export const dynamic = "force-dynamic";
+
 const worldMomentsQuery = `
   query GetWorldMoments {
     getWorldMoments {
