@@ -73,7 +73,7 @@ export default function WorldMomentCard({ moment }: WorldMomentCardProps) {
   const url = `https://${moment.brand.slug}.${host}/m/${moment.slug}`;
 
   return (
-    <div className="w-full max-w-sm mx-auto">
+    <div className="w-full max-w-[280px] sm:max-w-sm mx-auto">
       <ItmDisplayCard
         image={moment.coverImage.url}
         aspectRatio="poster"
