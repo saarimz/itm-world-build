@@ -5,7 +5,9 @@ import { ReactNode, useEffect } from "react";
 
 export default function MiniKitProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    MiniKit.install();
+    MiniKit.install(
+      process.env.NEXT_PUBLIC_WORLDCOIN_APP_ID
+    );
     console.log(MiniKit.isInstalled());
   }, []);
 
