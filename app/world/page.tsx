@@ -78,4 +78,4 @@ export default async function WorldDropsPage() {
   const moments = data.data.getWorldMoments;
 
   return <WorldContent initialMoments={moments} />;
-}
+} 
