@@ -21,8 +21,8 @@ export function MobileHeader({ onStatusChange, onTypeChange }: MobileHeaderProps
         <div className="flex-1 p-2 flex flex-col gap-1">
           <div className="flex flex-row items-center justify-between">
             <Image 
-              src="/humans-only.png" 
-              alt="Humans Only" 
+              src="/wb.png" 
+              alt="World Build" 
               width={36}
               height={36}
               className="rounded-full w-9 h-9"
@@ -37,18 +37,22 @@ export function MobileHeader({ onStatusChange, onTypeChange }: MobileHeaderProps
             </Link>
           </div>
           <Typography 
-            variant="body08" 
-            className="text-center italic text-xs"
-          >
-            Exclusive drops for humans, by humans
-          </Typography>
+              variant="body08" 
+              className="text-left italic text-base flex items-center gap-1"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Buenos Aires, Argentina
+            </Typography>
         </div>
       </div>
 
       {/* Filters section */}
       <div className={cn("flex flex-row justify-center gap-2 p-2", BOX_STYLE, "border-t-0")}>
         <Select 
-          defaultValue="all-status" 
+          defaultValue="upcoming" 
           onValueChange={onStatusChange}
         >
           <SelectTrigger className="h-8 min-w-32 border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
@@ -62,7 +66,7 @@ export function MobileHeader({ onStatusChange, onTypeChange }: MobileHeaderProps
           </SelectContent>
         </Select>
         <Select 
-          defaultValue="all-type"
+          defaultValue="irl"
           onValueChange={onTypeChange}
         >
           <SelectTrigger className="h-8 min-w-32 border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">

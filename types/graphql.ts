@@ -62,8 +62,8 @@ export interface Moment {
   hideDates: boolean;
 }
 
-export interface GetWorldMomentsResponse {
+export interface GetPublicMomentsByBrandResponse {
   data: {
-    getWorldMoments: Moment[];
+    getPublicMomentsByBrand: Moment[];
   };
 } 

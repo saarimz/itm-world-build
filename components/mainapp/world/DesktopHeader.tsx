@@ -20,11 +20,11 @@ export function DesktopHeader({ onStatusChange, onTypeChange }: DesktopHeaderPro
       <div className={cn("flex-1 flex flex-col", BOX_STYLE)}>
         <div className="flex-1 p-4 flex flex-row items-center gap-4">
           <Image 
-            src="/humans-only.png" 
-            alt="Humans Only" 
-            width={64}
-            height={64}
-            className="rounded-full w-16 h-16"
+            src="/wb.png" 
+            alt="World Build" 
+            width={128}
+            height={128}
+            className="w-24 h-24"
           />
           <div className="flex flex-col items-start gap-2">
             <Link href="https://itm.studio" target="_blank" rel="noopener noreferrer">
@@ -37,9 +37,13 @@ export function DesktopHeader({ onStatusChange, onTypeChange }: DesktopHeaderPro
             </Link>
             <Typography 
               variant="body08" 
-              className="text-left italic text-base"
+              className="text-left italic text-base flex items-center gap-1"
             >
-              Exclusive drops for humans, by humans
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Buenos Aires, Argentina
             </Typography>
           </div>
         </div>
@@ -49,7 +53,7 @@ export function DesktopHeader({ onStatusChange, onTypeChange }: DesktopHeaderPro
       <div className={cn("flex flex-row", BOX_STYLE)}>
         <div className="p-4 flex flex-row items-center gap-2">
           <Select 
-            defaultValue="all-status" 
+            defaultValue="upcoming" 
             onValueChange={onStatusChange}
           >
             <SelectTrigger className="h-10 w-[140px] border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
@@ -63,7 +67,7 @@ export function DesktopHeader({ onStatusChange, onTypeChange }: DesktopHeaderPro
             </SelectContent>
           </Select>
           <Select 
-            defaultValue="all-type"
+            defaultValue="irl"
             onValueChange={onTypeChange}
           >
             <SelectTrigger className="h-10 w-[140px] border-black border-[1px] rounded-[3px] bg-white hover:bg-black/5 focus:ring-0 focus:ring-offset-0">
