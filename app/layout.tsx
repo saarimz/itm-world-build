@@ -8,8 +8,8 @@ import NextAuthProvider from "@/components/next-auth-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Humans Only",
-  description: "Humans Only Store – Powered by ITM",
+  title: "World Build",
+  description: "World Build – Powered by ITM",
 };
 
 export default function RootLayout({
