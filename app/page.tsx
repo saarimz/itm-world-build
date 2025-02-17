@@ -12,7 +12,7 @@ const APP_ENV = process.env.NEXT_PUBLIC_APP_ENV!
 
 const GRAPHQL_ENDPOINT = APP_ENV === "production" ? "https://itm-backend-production.up.railway.app/graphql" : "https://itm-backend-staging.up.railway.app/graphql";
 
-const BRAND_UID = APP_ENV === "production" ? "bc90c4e8-34a1-4b0e-b6fa-bafede3f20e0" : "bc90c4e8-34a1-4b0e-b6fa-bafede3f20e0";
+const BRAND_UID = APP_ENV === "production" ? "f03c5f9b-625f-4c33-adf3-0f2e5451a35c" : "bc90c4e8-34a1-4b0e-b6fa-bafede3f20e0";
 
 const worldMomentsQuery = `
   query GetPublicMomentsByBrand($brandUid: String!, $password: String!) {
