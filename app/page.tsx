@@ -119,7 +119,7 @@ export default function WorldDropsPage() {
 
   useEffect(() => {
     if (!REQUIRE_PASSWORD_PROTECTION) {
-      fetchMoments();
+      fetchMoments("worldbuilder");
     }
   }, []);
 
