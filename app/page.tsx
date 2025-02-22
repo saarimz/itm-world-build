@@ -71,9 +71,7 @@ export default function WorldDropsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const fetchMoments = async (passwordValue: string = "") => {
     setIsLoading(true);
     setError(null);
 
@@ -87,7 +85,7 @@ export default function WorldDropsPage() {
           query: worldMomentsQuery,
           variables: {
             brandUid: BRAND_UID,
-            password: password
+            password: passwordValue
           }
         }),
       });
@@ -113,12 +111,28 @@ export default function WorldDropsPage() {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await fetchMoments(password);
+  };
+
   useEffect(() => {
-   if (!REQUIRE_PASSWORD_PROTECTION){
-    handleSubmit({} as React.FormEvent);
-   }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!REQUIRE_PASSWORD_PROTECTION) {
+      fetchMoments();
+    }
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="text-center">
+          <Typography variant="body04" as="p" className="text-gray-400">
+            Loading...
+          </Typography>
+        </div>
+      </div>
+    );
+  }
 
   if (isAuthenticated) {
     return <WorldContent initialMoments={moments} />;
