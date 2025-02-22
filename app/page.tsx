@@ -64,8 +64,9 @@ const worldMomentsQuery = `
   }
 `;
 
+
 export default function WorldDropsPage() {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("worldbuilder");
   const [isAuthenticated, setIsAuthenticated] = useState(!REQUIRE_PASSWORD_PROTECTION);
   const [moments, setMoments] = useState<GetPublicMomentsByBrandResponse["data"]["getPublicMomentsByBrand"]>([]);
   const [isLoading, setIsLoading] = useState(false);
