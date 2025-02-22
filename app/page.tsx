@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 
 
 const APP_ENV = process.env.NEXT_PUBLIC_APP_ENV!
+const REQUIRE_PASSWORD_PROTECTION = false;
 
 const GRAPHQL_ENDPOINT = APP_ENV === "production" ? "https://itm-backend-production.up.railway.app/graphql" : "https://itm-backend-staging.up.railway.app/graphql";
 
@@ -65,7 +66,7 @@ const worldMomentsQuery = `
 
 export default function WorldDropsPage() {
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(!REQUIRE_PASSWORD_PROTECTION);
   const [moments, setMoments] = useState<GetPublicMomentsByBrandResponse["data"]["getPublicMomentsByBrand"]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -113,6 +114,10 @@ export default function WorldDropsPage() {
   };
 
   if (isAuthenticated) {
+    return <WorldContent initialMoments={moments} />;
+  }
+
+  if (!REQUIRE_PASSWORD_PROTECTION) {
     return <WorldContent initialMoments={moments} />;
   }
 
