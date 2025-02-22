@@ -3,7 +3,7 @@
 import { Typography } from "@/components/Typography";
 import WorldContent from "@/components/mainapp/world/WorldContent";
 import { GetPublicMomentsByBrandResponse } from "@/types/graphql";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -112,6 +112,13 @@ export default function WorldDropsPage() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+   if (!REQUIRE_PASSWORD_PROTECTION){
+    handleSubmit({} as React.FormEvent);
+   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (isAuthenticated) {
     return <WorldContent initialMoments={moments} />;
